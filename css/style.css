@@ -1,0 +1,54 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+  text-align: center;
+  font-family: Tahoma;
+}
+
+#title, #marked {
+  cursor: default;
+}
+
+textarea {
+  outline: none !important;
+  margin-bottom: 10px;
+}
+
+textarea, #marked {
+  background: rgba(0, 0, 0, 0.03);
+  -webkit-transition: box-shadow .5s ease-in-out;
+  transition: box-shadow .5s ease-in-out;
+}
+
+textarea:focus {
+  background: #fff;
+}
+
+textarea:hover, textarea:focus {
+  box-shadow: 0 0 20px rgba(100, 0, 200, .8);
+}
+
+#marked {
+  min-width: 40%;
+  margin: 0;
+  padding: 0 1em;
+  border: 2px solid #eee;
+}
+
+.edited {
+  box-shadow: 0 0 40px #aaf;
+}
