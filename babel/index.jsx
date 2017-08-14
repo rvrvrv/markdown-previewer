@@ -1,4 +1,5 @@
-const exampleText = `Heading
+const exampleText = `
+Heading
 =======
 
 Sub-heading
@@ -30,11 +31,7 @@ Numbered list:
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      text: exampleText,
-    };
-
-    this.handleChange = this.handleChange.bind(this);
+    this.state = { text: exampleText };
   }
 
   // Call markdown function from external API
@@ -43,8 +40,8 @@ class App extends React.Component {
   }
 
   // Upon text change, update state and highlight marked box
-  handleChange(e) {
-    this.setState({ text: this.refs.textarea.value });
+  handleChange = (e) => {
+    this.setState({ text: e.target.value });
     const marked = document.getElementById('marked');
     marked.classList.add('edited');
     setTimeout(() => marked.classList.remove('edited'), 3000);
@@ -53,10 +50,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h2 id="title">📝 Markdown Previewer 👓</h2>
+        <h2 id="title"><span role="img" aria-label="document">📝</span> Markdown Previewer <span role="img" aria-label="glasses">👓</span></h2>
         <textarea
           onChange={this.handleChange}
-          ref="textarea"
           defaultValue={this.state.text}
           rows="30"
           cols="50"
