@@ -1,5 +1,4 @@
-const exampleText = `
-Heading
+const exampleText = `Heading
 =======
 
 Sub-heading
