@@ -16,30 +16,26 @@ var App = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
 
-    _this.state = {
-      text: exampleText
+    _this.handleChange = function (e) {
+      _this.setState({ text: e.target.value });
+      var marked = document.getElementById("marked");
+      marked.classList.add("edited");
+      setTimeout(function () {
+        return marked.classList.remove("edited");
+      }, 3000);
     };
 
-    _this.handleChange = _this.handleChange.bind(_this);
+    _this.state = { text: exampleText };
     return _this;
   }
 
-  //Call markdown function from external API
+  // Call markdown function from external API
 
   App.prototype.markIt = function markIt() {
     return { __html: marked(this.state.text, { sanitize: true }) };
   };
 
-  //Upon text change, update state and highlight marked box
-
-  App.prototype.handleChange = function handleChange(e) {
-    this.setState({ text: this.refs.textarea.value });
-    var marked = document.getElementById("marked");
-    marked.classList.add("edited");
-    setTimeout(function () {
-      return marked.classList.remove("edited");
-    }, 3000);
-  };
+  // Upon text change, update state and highlight marked box
 
   App.prototype.render = function render() {
     return React.createElement(
@@ -48,11 +44,20 @@ var App = function (_React$Component) {
       React.createElement(
         "h2",
         { id: "title" },
-        "📝 Markdown Previewer 👓"
+        React.createElement(
+          "span",
+          { role: "img", "aria-label": "document" },
+          "📝"
+        ),
+        " Markdown Previewer ",
+        React.createElement(
+          "span",
+          { role: "img", "aria-label": "glasses" },
+          "👓"
+        )
       ),
       React.createElement("textarea", {
         onChange: this.handleChange,
-        ref: "textarea",
         defaultValue: this.state.text,
         rows: "30",
         cols: "50"
