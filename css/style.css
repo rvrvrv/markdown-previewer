@@ -19,7 +19,7 @@
   font-family: Tahoma;
 }
 
-#title, #marked {
+#title, #preview {
   cursor: default;
 }
 
@@ -28,21 +28,21 @@ textarea {
   margin-bottom: 10px;
 }
 
-textarea, #marked {
+#editor, #preview {
   background: rgba(0, 0, 0, 0.03);
   -webkit-transition: box-shadow .5s ease-in-out;
   transition: box-shadow .5s ease-in-out;
 }
 
-textarea:focus {
+#editor:focus {
   background: #fff;
 }
 
-textarea:hover, textarea:focus {
+#editor:hover, #editor:focus {
   box-shadow: 0 0 20px rgba(100, 0, 200, .8);
 }
 
-#marked {
+#preview {
   min-width: 40%;
   margin: 0;
   padding: 0 1em;
