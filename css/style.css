@@ -23,15 +23,16 @@
   cursor: default;
 }
 
-textarea {
-  outline: none !important;
-  margin-bottom: 10px;
-}
-
 #editor, #preview {
   background: rgba(0, 0, 0, 0.03);
   -webkit-transition: box-shadow .5s ease-in-out;
   transition: box-shadow .5s ease-in-out;
+}
+
+#editor {
+  outline: none !important;
+  margin-bottom: 10px;
+  caret-color: #80d;
 }
 
 #editor:focus {
