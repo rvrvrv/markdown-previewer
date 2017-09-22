@@ -11,45 +11,38 @@
           align-items: flex-start;
 }
 
-#title {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 100%;
-          flex: 1 100%;
+.title {
   text-align: center;
   font-family: Tahoma;
 }
 
-#title, #preview {
+.title, .preview {
   cursor: default;
 }
 
-#editor, #preview {
+.editor, .preview {
   background: rgba(0, 0, 0, 0.03);
   -webkit-transition: box-shadow .5s ease-in-out;
   transition: box-shadow .5s ease-in-out;
 }
 
-#editor {
+.editor {
   outline: none !important;
   margin-bottom: 10px;
   caret-color: #80d;
 }
 
-#editor:focus {
+.editor:focus {
   background: #fff;
 }
 
-#editor:hover, #editor:focus {
+.editor:hover, .editor:focus {
   box-shadow: 0 0 20px rgba(100, 0, 200, .8);
 }
 
-#preview {
+.preview {
   min-width: 40%;
   margin: 0;
   padding: 0 1em;
   border: 2px solid #eee;
-}
-
-.edited {
-  box-shadow: 0 0 40px #aaf;
 }
