@@ -36,7 +36,7 @@ Markdown parser courtesy of [marked.js](https://github.com/chjj/marked)
 class App extends React.Component {
   constructor() {
     super();
-    this.state = { text: exampleText };
+    this.state = { text: exampleText, editing: false };
   }
 
   // Call markdown function from external API
@@ -46,24 +46,25 @@ class App extends React.Component {
 
   // Upon text change, update state and highlight preview box
   handleChange = (e) => {
-    this.setState({ text: e.target.value });
-    const preview = document.getElementById('preview');
-    preview.classList.add("edited");
-    setTimeout(() => preview.classList.remove('edited'), 3000);
+    this.setState({ text: e.target.value, editing: true });
   };
 
   render() {
+    const editingStyle = { boxShadow: '0 0 40px #aaf' };
     return (
-      <div className="container">
-        <h2 id="title"><span role="img" aria-label="document">📝</span> Markdown Previewer <span role="img" aria-label="glasses">👓</span></h2>
-        <textarea
-          id="editor"
-          onChange={this.handleChange}
-          defaultValue={this.state.text}
-          rows="30"
-          cols="50"
-        />
-        <p id="preview" dangerouslySetInnerHTML={this.markIt()} />
+      <div>
+        <h2 className="title"><span role="img" aria-label="document">📝</span> Markdown Previewer <span role="img" aria-label="glasses">👓</span></h2>
+        <div className="container">
+          <textarea
+            className="editor"
+            onChange={this.handleChange}
+            onBlur={() => this.setState({ editing: false })}
+            defaultValue={this.state.text}
+            rows="30"
+            cols="50"
+          />
+          <p className="preview" dangerouslySetInnerHTML={this.markIt()} style={this.state.editing ? editingStyle : null} />
+        </div>
       </div>
     );
   }
