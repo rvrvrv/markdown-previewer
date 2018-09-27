@@ -13,7 +13,7 @@
 
 .title {
   text-align: center;
-  font-family: Tahoma;
+  font-family: Tahoma, sans-serif;
 }
 
 .title, .preview {
