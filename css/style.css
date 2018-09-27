@@ -27,9 +27,11 @@
 }
 
 .editor {
-  outline: none !important;
-  margin-bottom: 10px;
   caret-color: #80d;
+  margin-bottom: 10px;
+  min-width: 5em;
+  max-width: 50vw;
+  outline: none !important;
 }
 
 .editor:focus {
